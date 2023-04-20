@@ -3,23 +3,42 @@ using UnityEngine;
 class Player : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-
+    [SerializeField] float angularSpeed = 180;
     void Start() { }
 
 
     void Update()
     {
         Vector3 direction = GetInputDirection();
-        Vector3 velocity = direction * speed;
-        transform.position += velocity * Time.deltaTime;
+
+        if (direction != Vector3.zero)
+        {
+            Vector3 velocity = direction * speed;
+            transform.position += velocity * Time.deltaTime;
+
+            //if (direction != Vector3.zero)
+            Quaternion targetRot = Quaternion.LookRotation(direction);
+            Quaternion currentRot = transform.rotation;
+
+            float step= angularSpeed *Time.deltaTime; //angularspeed forgási sebesség
+            transform.rotation = Quaternion.RotateTowards(currentRot, targetRot, step);
+
+            //transform.rotation = Quaternion.LookRotation(direction);
+
+            
+
+
+
+
+        }
     }
 
     Vector3 GetInputDirection()
     {
-        bool rightButton = Input.GetKey(KeyCode.RightArrow);
-        bool leftButton = Input.GetKey(KeyCode.LeftArrow);
-        bool upButton = Input.GetKey(KeyCode.UpArrow);
-        bool downButton = Input.GetKey(KeyCode.DownArrow);
+        bool rightButton = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+        bool leftButton = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A); ;
+        bool upButton = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W); ;
+        bool downButton = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S); ;
 
         float x = 0;
         if (rightButton)

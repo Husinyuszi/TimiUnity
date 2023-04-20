@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -105,4 +106,63 @@ using UnityEngine;
         }
     }
 
-}
+    float Floor (float n) 
+    {
+        float r = n % 1;
+        return n - r;
+    }
+
+    int FloorToInt (float n )
+    {
+        return (int)n;
+    }
+
+    float Ceil(float n)
+    {
+        float r = n % 1;
+            if (r==0)
+        {
+            return n;       
+        }
+        return n - r + 1;
+    }
+
+    //float Round (float n)
+        
+    bool IsPrime (int n) 
+    {
+        if (n%2==0)
+        {
+            return false;
+        }
+        for (int i =2; i <n; i++)
+        {
+            if (n % 1 == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    float Min(float a, float b) 
+    {
+       /* if (a<b) 
+        {
+            return a;
+        }
+        else
+        {
+            return b;*/
+
+            return a < b ? a : b;
+        }
+    float Max( float a, float b ) // => (nyíl) a> b ? a:b; egy parancssornál , ez expresson body jobb klikk quick action 
+    {
+        return a> b ? a : b;
+    }
+
+    }
+
+    
+
