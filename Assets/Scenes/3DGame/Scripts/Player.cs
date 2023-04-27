@@ -4,6 +4,7 @@ class Player : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     [SerializeField] float angularSpeed = 180;
+    [SerializeField] Transform cameraTransform;
     void Start() { }
 
 
@@ -60,7 +61,15 @@ class Player : MonoBehaviour
             z -= -1;
         }
 
-        Vector3 d = new Vector3(x, 0, z);
+        //----------------------------
+
+        Vector3 cameraRight = cameraTransform.right;
+        //Vector3 cameraRight = -cameraTransform.right ez a balra, nincs cameraTransform.left!!!
+        Vector3 cameraForward = cameraTransform.forward;
+
+        Vector3 d = x * cameraRight + z * cameraForward;
+        d.y = 0; //függõleges komponens ki van törölve
+
         d.Normalize();
         return d;
     }
@@ -69,7 +78,7 @@ class Player : MonoBehaviour
 
 /*using UnityEngine;
 
-public class Player : MonoBehaviour
+ class Player : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     void Start()
