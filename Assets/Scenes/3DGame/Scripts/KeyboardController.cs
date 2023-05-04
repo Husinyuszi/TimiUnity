@@ -1,15 +1,26 @@
 using UnityEngine;
 
-class Player : MonoBehaviour
+class KeyboardController : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     [SerializeField] float angularSpeed = 180;
     [SerializeField] Transform cameraTransform;
+    [SerializeField] Damageable damageable;
     void Start() { }
+
+     void OnValidate()
+    {
+        if (damageable==null)
+            damageable = GetComponent<Damageable>();
+    }
 
 
     void Update()
+
     {
+        if (damageable != null && !damageable.IsAlive())
+            return;
+
         Vector3 direction = GetInputDirection();
 
         if (direction != Vector3.zero)
@@ -78,7 +89,7 @@ class Player : MonoBehaviour
 
 /*using UnityEngine;
 
- class Player : MonoBehaviour
+ class KeyboardController : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     void Start()
