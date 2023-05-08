@@ -6,7 +6,7 @@ class KeyboardController : MonoBehaviour
     [SerializeField] float angularSpeed = 180;
     [SerializeField] Transform cameraTransform;
     [SerializeField] Damageable damageable;
-    void Start() { }
+    
 
      void OnValidate()
     {

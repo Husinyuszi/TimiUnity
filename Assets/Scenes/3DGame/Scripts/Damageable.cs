@@ -10,18 +10,18 @@ class Damageable : MonoBehaviour
     //[SerializeField] Color minHPcolor= Color.red, maxHPcolor=Color.green;
     [SerializeField] Gradient healthColor;
     [SerializeField] GameObject isDeadObject;
+
     int health;
+
     void Start()
     {
         health = maxHP;
         UpdateUI();
     }
-    public int GetHealth() 
-    { 
-        return health;
-    }
-
+    public int GetHealth() => health;
+    
     public bool IsAlive() => health > 0;
+
     public void Damage(int n) //public kívülrõl is bele lehet írni a változóhoz
     {
         health -= n;
