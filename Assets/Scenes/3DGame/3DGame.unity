@@ -3403,6 +3403,7 @@ GameObject:
   - component: {fileID: 1737188624}
   - component: {fileID: 1737188623}
   - component: {fileID: 1737188622}
+  - component: {fileID: 1737188625}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3483,6 +3484,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: -7.33, y: 0.23, z: -7.28}
+--- !u!114 &1737188625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737188619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6f997168a88ea4798b81772959f8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1725361766}
+  targetOffset: {x: 0, y: 0, z: 0}
+  enableVerticalTurn: 1
 --- !u!1 &1749129116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4132,7 @@ GameObject:
   - component: {fileID: 1964867192}
   - component: {fileID: 1964867191}
   - component: {fileID: 1964867190}
+  - component: {fileID: 1964867193}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4189,6 +4206,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 19.164, y: -2.776, z: -2.191}
+--- !u!114 &1964867193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964867189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6f997168a88ea4798b81772959f8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1725361766}
+  targetOffset: {x: 0, y: 0, z: 0}
+  enableVerticalTurn: 1
 --- !u!1 &2037259822
 GameObject:
   m_ObjectHideFlags: 0
