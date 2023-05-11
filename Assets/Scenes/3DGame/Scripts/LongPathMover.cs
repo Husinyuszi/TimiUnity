@@ -1,12 +1,13 @@
 using UnityEngine;
 
- class LongPathMover : MonoBehaviour
+ public class LongPathMover : MonoBehaviour
 {
     [SerializeField] Vector3[] points;
     [SerializeField] float speed = 2;
 
     int targetIndex;
-     void Start()
+
+     private void Start()
     {
         transform.position = points[0];
         targetIndex = 1;
@@ -14,11 +15,13 @@ using UnityEngine;
 
      void Update()
     {
-        Vector3 target = points[targetIndex % points.Length];
+        Vector3 target = points[targetIndex];
         transform .position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);   
+
         if(transform.position == target)
         {
             targetIndex++;
+
             if (targetIndex >= points.Length) // azért ha játék közben ki kerüle egy pont
                 targetIndex = 0;
         }
