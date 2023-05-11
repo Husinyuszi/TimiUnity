@@ -4,10 +4,19 @@ using UnityEngine;
 {
     [SerializeField] Vector3[] points;
     [SerializeField] float speed = 2;
+    [SerializeField] LineRenderer lineRenderer;
 
     int targetIndex;
 
-     private void Start()
+     void OnValidate()
+    {
+        if(lineRenderer==null)
+            lineRenderer = GetComponent<LineRenderer>();
+
+        UpdateLineRenderer();
+    }
+
+    private void Start()
     {
         transform.position = points[0];
         targetIndex = 1;
@@ -25,7 +34,19 @@ using UnityEngine;
             if (targetIndex >= points.Length) // azért ha játék közben ki kerüle egy pont
                 targetIndex = 0;
         }
+
+        UpdateLineRenderer();
     }
+
+    void UpdateLineRenderer()
+    {
+        if (lineRenderer == null)
+            return;
+
+        lineRenderer.positionCount = points.Length;
+        lineRenderer.SetPositions(points);
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
