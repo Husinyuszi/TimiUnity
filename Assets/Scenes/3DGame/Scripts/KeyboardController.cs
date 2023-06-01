@@ -37,11 +37,7 @@ class KeyboardController : MonoBehaviour
 
             //transform.rotation = Quaternion.LookRotation(direction);
 
-            
-
-
-
-
+           
         }
     }
 
